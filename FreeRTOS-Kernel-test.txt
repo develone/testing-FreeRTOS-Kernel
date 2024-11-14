@@ -1,0 +1,68 @@
+devel@pi5-80:~ $ cd testing/
+devel@pi5-80:~/testing $ git clone https://github.com/raspberrypi/FreeRTOS-Kernel.git
+Cloning into 'FreeRTOS-Kernel'...
+remote: Enumerating objects: 163154, done.
+remote: Counting objects: 100% (58/58), done.
+remote: Compressing objects: 100% (15/15), done.
+remote: Total 163154 (delta 51), reused 44 (delta 43), pack-reused 163096 (from 1)
+Receiving objects: 100% (163154/163154), 109.75 MiB | 27.97 MiB/s, done.
+Resolving deltas: 100% (117057/117057), done.
+devel@pi5-80:~/testing $ cd FreeRTOS-Kernel/
+devel@pi5-80:~/testing/FreeRTOS-Kernel $ git submodule update --init
+Submodule 'ThirdParty/FreeRTOS-Kernel-Community-Supported-Ports' (https://github.com/FreeRTOS/FreeRTOS-Kernel-Community-Supported-Ports) registered for path 'portable/ThirdParty/Community-Supported-Ports'
+Submodule 'ThirdParty/FreeRTOS-Kernel-Partner-Supported-Ports' (https://github.com/FreeRTOS/FreeRTOS-Kernel-Partner-Supported-Ports) registered for path 'portable/ThirdParty/Partner-Supported-Ports'
+Cloning into '/home/devel/testing/FreeRTOS-Kernel/portable/ThirdParty/Community-Supported-Ports'...
+Cloning into '/home/devel/testing/FreeRTOS-Kernel/portable/ThirdParty/Partner-Supported-Ports'...
+Submodule path 'portable/ThirdParty/Community-Supported-Ports': checked out '9c5bad7b2f42b4e8420f12290b9bc085d3309e8b'
+Submodule path 'portable/ThirdParty/Partner-Supported-Ports': checked out 'dc3afc6e837426b4bda81bbb6cf45bfb6f34c7e9'
+devel@pi5-80:~/testing/FreeRTOS-Kernel $ cd ../
+devel@pi5-80:~/testing $ cd FreeRTOS-Kernel/
+devel@pi5-80:~/testing/FreeRTOS-Kernel $ ls
+CMakeLists.txt      GitHub-FreeRTOS-Kernel-Home.url  manifest.yml           README.md
+croutine.c          History.txt                      MISRA.md               stream_buffer.c
+cspell.config.yaml  include                          portable               tasks.c
+event_groups.c      LICENSE.md                       queue.c                timers.c
+examples            list.c                           Quick_Start_Guide.url
+devel@pi5-80:~/testing/FreeRTOS-Kernel $ cd examples/cmake_example/
+devel@pi5-80:~/testing/FreeRTOS-Kernel/examples/cmake_example $ ls
+CMakeLists.txt  main.c
+devel@pi5-80:~/testing/FreeRTOS-Kernel/examples/cmake_example $ cmake .
+-- The C compiler identification is GNU 12.2.0
+-- The CXX compiler identification is GNU 12.2.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/devel/testing/FreeRTOS-Kernel/examples/cmake_example
+devel@pi5-80:~/testing/FreeRTOS-Kernel/examples/cmake_example $ make
+[  8%] Building C object FreeRTOS-Kernel/portable/CMakeFiles/freertos_kernel_port.dir/template/port.c.o
+[  8%] Built target freertos_kernel_port
+[ 16%] Building C object FreeRTOS-Kernel/CMakeFiles/freertos_kernel.dir/croutine.c.o
+[ 25%] Building C object FreeRTOS-Kernel/CMakeFiles/freertos_kernel.dir/event_groups.c.o
+[ 33%] Building C object FreeRTOS-Kernel/CMakeFiles/freertos_kernel.dir/list.c.o
+[ 41%] Building C object FreeRTOS-Kernel/CMakeFiles/freertos_kernel.dir/queue.c.o
+[ 50%] Building C object FreeRTOS-Kernel/CMakeFiles/freertos_kernel.dir/stream_buffer.c.o
+[ 58%] Building C object FreeRTOS-Kernel/CMakeFiles/freertos_kernel.dir/tasks.c.o
+[ 66%] Building C object FreeRTOS-Kernel/CMakeFiles/freertos_kernel.dir/timers.c.o
+[ 75%] Building C object FreeRTOS-Kernel/CMakeFiles/freertos_kernel.dir/portable/MemMang/heap_4.c.o
+[ 83%] Linking C static library libfreertos_kernel.a
+[ 83%] Built target freertos_kernel
+[ 91%] Building C object CMakeFiles/example.dir/main.c.o
+[100%] Linking C executable example
+[100%] Built target example
+devel@pi5-80:~/testing/FreeRTOS-Kernel/examples/cmake_example $ ls
+CMakeCache.txt  cmake_install.cmake  example          main.c
+CMakeFiles      CMakeLists.txt       FreeRTOS-Kernel  Makefile
+devel@pi5-80:~/testing/FreeRTOS-Kernel/examples/cmake_example $ ./example 
+Example FreeRTOS Project
+devel@pi5-80:~/testing/FreeRTOS-Kernel/examples/cmake_example $ ls FreeRTOS-Kernel/
+CMakeFiles  cmake_install.cmake  include  libfreertos_kernel.a  Makefile  portable
+devel@pi5-80:~/testing/FreeRTOS-Kernel/examples/cmake_example $ cd FreeRTOS-Kernel/
